@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TrustDCX — Shield Key · Brand Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0E14;
+    --ink-soft:#11151F;
+    --paper:#F4F5F7;
+    --paper-2:#E9EBF0;
+    --line:rgba(11,14,20,0.08);
+    --muted:#6B7280;
+    --blue:#1E6BFF;
+    --blue-deep:#0A2A6B;
+    --cyan:#39E0FF;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    padding:56px 40px 110px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+
+  /* header */
+  .header{display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1px solid var(--line);padding-bottom:22px;gap:24px;flex-wrap:wrap}
+  .h-mark{display:flex;align-items:center;gap:16px}
+  .h-word{font-family:'Sora',sans-serif;font-weight:800;font-size:30px;letter-spacing:-0.035em}
+  .h-word .dcx{color:var(--blue)}
+  .header .meta{text-align:right;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+  .header .meta b{display:block;color:var(--ink);font-size:13px;letter-spacing:0.16em}
+
+  /* section heads */
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:64px 0 22px}
+  .sec-head .no{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#fff;
+    background:var(--ink);width:30px;height:30px;border-radius:8px;display:grid;place-items:center}
+  .sec-head h2{font-family:'Sora',sans-serif;font-weight:700;font-size:20px;margin:0;letter-spacing:-0.02em}
+  .sec-head .desc{font-size:13px;color:var(--muted);margin-left:auto;text-align:right;max-width:380px;line-height:1.5}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .stage{flex:1;display:grid;place-items:center;padding:60px 40px;min-height:260px}
+  .stage.dark{background:var(--ink)}
+  .stage.tint{background:radial-gradient(circle at 30% 0%,rgba(30,107,255,0.10),transparent 55%),var(--paper-2)}
+  .label{border-top:1px solid var(--line);padding:13px 18px;display:flex;justify-content:space-between;
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);background:#fafbfc}
+  .label b{color:var(--ink);font-weight:700}
+
+  /* lockups */
+  .lockup{display:flex;align-items:center;gap:22px}
+  .lockup.vert{flex-direction:column;gap:18px}
+  .word{display:flex;flex-direction:column;line-height:0.96}
+  .word .name{font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-0.035em;color:var(--ink)}
+  .word .dcx{color:var(--blue)}
+  .word .sub{margin-top:9px;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10.5px;
+    letter-spacing:0.34em;text-transform:uppercase;color:var(--muted)}
+  .vert .word{align-items:center;text-align:center}
+  .stage.dark .word .name{color:#fff}
+  .stage.dark .word .dcx{color:var(--cyan)}
+  .stage.dark .word .sub{color:#8B93A3}
+  svg{display:block}
+
+  /* mono row */
+  .mono-cell{display:grid;place-items:center;padding:48px 20px;min-height:200px}
+  .mono-cell.on-blue{background:var(--blue)}
+  .mono-cell.on-ink{background:var(--ink)}
+  .mono-cell.on-paper{background:var(--paper-2)}
+
+  /* app icon */
+  .app-row{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:center}
+  .app-icon{width:152px;height:152px;border-radius:34px;position:relative;overflow:hidden;display:grid;place-items:center;
+    background:linear-gradient(155deg,var(--cyan) 0%,var(--blue) 48%,var(--blue-deep) 100%);
+    box-shadow:0 20px 40px -16px rgba(10,42,107,0.55),inset 0 -3px 0 rgba(0,0,0,0.12)}
+  .app-icon .gloss{position:absolute;top:-30%;left:-15%;width:80%;height:70%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,0.32),transparent 60%)}
+  .sizes{display:flex;align-items:center;gap:14px}
+  .sizes .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase}
+  .mini{border-radius:9px;overflow:hidden;display:grid;place-items:center;
+    background:linear-gradient(155deg,var(--cyan) 0%,var(--blue) 48%,var(--blue-deep) 100%);
+    box-shadow:0 4px 10px -4px rgba(10,42,107,0.4)}
+
+  /* clear space / min size */
+  .cs-stage{position:relative;display:grid;place-items:center;padding:48px;min-height:300px;background:var(--paper-2)}
+  .cs-box{position:relative;padding:48px}
+  .cs-box::before{content:"";position:absolute;inset:0;border:1.5px dashed rgba(30,107,255,0.5);border-radius:6px}
+  .cs-pad{position:absolute;background:rgba(30,107,255,0.10);font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--blue);display:grid;place-items:center;font-weight:700}
+  .cs-note{font-size:12px;color:var(--muted);line-height:1.6;text-align:center;margin-top:6px}
+  .cs-note b{color:var(--ink)}
+  .minsize{display:flex;align-items:flex-end;gap:30px;justify-content:center;padding:48px}
+
+  /* color palette */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .sw{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+  .sw .chip{height:110px}
+  .sw .info{padding:14px 16px}
+  .sw .nm{font-weight:700;font-size:13px;margin-bottom:8px}
+  .sw .hex{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;line-height:1.9}
+  .sw .hex span:last-child{color:#9aa1ad}
+
+  /* type */
+  .type-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 36px;display:flex;flex-direction:column;gap:26px}
+  .type-row{display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--line);padding-bottom:22px}
+  .type-row:last-child{border-bottom:none;padding-bottom:0}
+  .type-row .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);width:130px;flex-shrink:0;text-transform:uppercase;letter-spacing:0.1em}
+  .type-row .demo-sora{font-family:'Sora',sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.03em}
+  .type-row .demo-inter{font-family:'Inter',sans-serif;font-size:18px}
+  .type-row .demo-mono{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:0.06em}
+
+  /* misuse */
+  .dont-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .dont{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .dont .vis{height:130px;display:grid;place-items:center;background:var(--paper-2);position:relative}
+  .dont .cap{padding:11px 14px;font-size:11px;color:#B4263A;display:flex;gap:7px;align-items:center;font-weight:600}
+  .dont .cap::before{content:"✕";font-weight:800}
+
+  .footer{margin-top:80px;border-top:1px solid var(--line);padding-top:24px;font-size:12px;color:var(--muted);line-height:1.7}
+  .footer b{color:var(--ink)}
+  @media(max-width:920px){.grid-2,.grid-3,.swatches,.dont-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <div class="h-mark">
+      <span id="hMark"></span>
+      <span class="h-word">Trust<span class="dcx">DCX</span></span>
+    </div>
+    <div class="meta">
+      <b>Shield Key · Brand Sheet</b>
+      Direction A · Decentralized Secured Wallet
+    </div>
+  </header>
+
+  <!-- 01 — Primary lockup -->
+  <div class="sec-head">
+    <span class="no">01</span>
+    <h2>Primary Lockup</h2>
+    <span class="desc">The default signature. Use the horizontal lockup wherever space allows, on light or dark surfaces.</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="stage tint">
+        <div class="lockup"><span id="lkA"></span>
+          <div class="word"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Secured · Self-Custody</span></div>
+        </div>
+      </div>
+      <div class="label"><b>Horizontal</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup"><span id="lkAd"></span>
+          <div class="word"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Secured · Self-Custody</span></div>
+        </div>
+      </div>
+      <div class="label"><b>Horizontal</b><span>Dark</span></div>
+    </div>
+  </div>
+
+  <!-- 02 — Stacked + mark -->
+  <div class="sec-head">
+    <span class="no">02</span>
+    <h2>Stacked Lockup &amp; Mark</h2>
+    <span class="desc">Stacked for square/centered placements. The shield mark stands alone as the avatar &amp; favicon.</span>
+  </div>
+  <div class="grid-3">
+    <div class="card">
+      <div class="stage tint">
+        <div class="lockup vert"><span id="stk"></span>
+          <div class="word"><span class="name" style="font-size:40px">Trust<span class="dcx">DCX</span></span><span class="sub" style="align-self:center">Secured Wallet</span></div>
+        </div>
+      </div>
+      <div class="label"><b>Stacked</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup vert"><span id="stkd"></span>
+          <div class="word"><span class="name" style="font-size:40px">Trust<span class="dcx">DCX</span></span><span class="sub" style="align-self:center">Secured Wallet</span></div>
+        </div>
+      </div>
+      <div class="label"><b>Stacked</b><span>Dark</span></div>
+    </div>
+    <div class="card">
+      <div class="stage tint"><span id="markBig"></span></div>
+      <div class="label"><b>Symbol</b><span>The Shield Key</span></div>
+    </div>
+  </div>
+
+  <!-- 03 — App icon -->
+  <div class="sec-head">
+    <span class="no">03</span>
+    <h2>App Icon</h2>
+    <span class="desc">Rounded-square icon for iOS &amp; Android, scaling down cleanly to favicon size.</span>
+  </div>
+  <div class="card">
+    <div class="stage tint" style="padding:52px 40px">
+      <div class="app-row">
+        <div class="app-icon"><div class="gloss"></div><span id="appBig"></span></div>
+        <div class="sizes">
+          <span class="mini" style="width:64px;height:64px;border-radius:15px" id="app64"></span>
+          <span class="mini" style="width:40px;height:40px;border-radius:10px" id="app40"></span>
+          <span class="mini" style="width:24px;height:24px;border-radius:6px" id="app24"></span>
+          <span class="lab">180 · 64 · 40 · 24 px</span>
+        </div>
+      </div>
+    </div>
+    <div class="label"><b>App Icon</b><span>iOS / Android · Favicon</span></div>
+  </div>
+
+  <!-- 04 — Monochrome -->
+  <div class="sec-head">
+    <span class="no">04</span>
+    <h2>One-Color &amp; Reversed</h2>
+    <span class="desc">For single-color print, embossing, watermarks and partner placements. Never recolor the gradient.</span>
+  </div>
+  <div class="grid-3">
+    <div class="card"><div class="mono-cell on-paper"><span id="monoInk"></span></div><div class="label"><b>Solid Ink</b><span>#0B0E14</span></div></div>
+    <div class="card"><div class="mono-cell on-blue"><span id="monoWhite"></span></div><div class="label"><b>Reversed White</b><span>on Blue</span></div></div>
+    <div class="card"><div class="mono-cell on-ink"><span id="monoWhite2"></span></div><div class="label"><b>Reversed White</b><span>on Ink</span></div></div>
+  </div>
+
+  <!-- 05 — Clear space + min size -->
+  <div class="sec-head">
+    <span class="no">05</span>
+    <h2>Clear Space &amp; Minimum Size</h2>
+    <span class="desc">Protect the mark with padding equal to half the shield's height (½x). Never place it smaller than the floors below.</span>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="cs-stage">
+        <div class="cs-box" id="csBox"><span id="csMark"></span></div>
+      </div>
+      <div class="label"><b>Clear Space</b><span>min padding = ½ × shield height</span></div>
+    </div>
+    <div class="card">
+      <div class="cs-stage" style="background:#fff">
+        <div class="minsize">
+          <div style="text-align:center"><span id="min32"></span><div class="cs-note" style="margin-top:14px"><b>32 px</b><br>app / UI floor</div></div>
+          <div style="text-align:center"><span id="min20"></span><div class="cs-note" style="margin-top:14px"><b>20 px</b><br>favicon floor</div></div>
+          <div style="text-align:center"><span id="minLk"></span><div class="cs-note" style="margin-top:14px"><b>120 px</b> wide<br>full lockup floor</div></div>
+        </div>
+      </div>
+      <div class="label"><b>Minimum Size</b><span>below this, use the symbol only</span></div>
+    </div>
+  </div>
+
+  <!-- 06 — Color -->
+  <div class="sec-head">
+    <span class="no">06</span>
+    <h2>Color Palette</h2>
+    <span class="desc">Electric Blue carries the brand; Cyan is the accent &amp; highlight; Ink and Paper ground the system.</span>
+  </div>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#1E6BFF"></div><div class="info"><div class="nm">Electric Blue</div><div class="hex"><span>HEX</span><span>#1E6BFF</span></div><div class="hex"><span>RGB</span><span>30 107 255</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#39E0FF"></div><div class="info"><div class="nm">Signal Cyan</div><div class="hex"><span>HEX</span><span>#39E0FF</span></div><div class="hex"><span>RGB</span><span>57 224 255</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#0A2A6B"></div><div class="info"><div class="nm">Deep Vault</div><div class="hex"><span>HEX</span><span>#0A2A6B</span></div><div class="hex"><span>RGB</span><span>10 42 107</span></div></div></div>
+    <div class="sw"><div class="chip" style="background:#0B0E14"></div><div class="info"><div class="nm">Ink</div><div class="hex"><span>HEX</span><span>#0B0E14</span></div><div class="hex"><span>RGB</span><span>11 14 20</span></div></div></div>
+  </div>
+
+  <!-- 07 — Type -->
+  <div class="sec-head">
+    <span class="no">07</span>
+    <h2>Typography</h2>
+    <span class="desc">Sora for the wordmark &amp; headlines, Inter for body, JetBrains Mono for labels &amp; data.</span>
+  </div>
+  <div class="type-card">
+    <div class="type-row"><span class="tag">Wordmark · Sora 800</span><span class="demo-sora">Trust<span style="color:var(--blue)">DCX</span></span></div>
+    <div class="type-row"><span class="tag">Body · Inter</span><span class="demo-inter">Self-custody that feels effortless — your keys, your crypto, secured end to end.</span></div>
+    <div class="type-row"><span class="tag">Label · JetBrains Mono</span><span class="demo-mono">SECURED · SELF-CUSTODY · 0x1E6B…FF</span></div>
+  </div>
+
+  <!-- 08 — Misuse -->
+  <div class="sec-head">
+    <span class="no">08</span>
+    <h2>Don'ts</h2>
+    <span class="desc">Keep the mark consistent. A few things that break the system.</span>
+  </div>
+  <div class="dont-grid">
+    <div class="dont"><div class="vis"><span id="dont1"></span></div><div class="cap">Don't recolor the shield</div></div>
+    <div class="dont"><div class="vis"><span id="dont2"></span></div><div class="cap">Don't stretch or distort</div></div>
+    <div class="dont"><div class="vis" style="background:#7C3AED"><span id="dont3"></span></div><div class="cap">Don't place on clashing colors</div></div>
+    <div class="dont"><div class="vis"><span id="dont4"></span></div><div class="cap">Don't add shadows or outlines</div></div>
+  </div>
+
+  <div class="footer">
+    <b>Direction A — Shield Key</b> is locked in. I can export production SVGs (full lockup, stacked, symbol, mono),
+    a 1024px app-icon PNG set, and favicons next — just say the word. Want me to also try a tighter cyan-forward
+    variant of the wordmark, or a horizontal "TrustDCX" with the shield integrated into the letterforms?
+  </div>
+
+</div>
+
+<script>
+let __gid = 0;
+const uid = () => 'g' + (__gid++);
+const set = (id, html) => { const e = document.getElementById(id); if (e) e.innerHTML = html; };
+
+// Shield with keyhole. mode: 'grad' | solid color string
+function shield(size, opt){
+  opt = opt || {};
+  let fill;
+  if (opt.solid){ fill = opt.solid; }
+  else {
+    const id = uid();
+    const from = opt.from || '#1E6BFF', to = opt.to || '#0A2A6B';
+    fill = `url(#${id})`;
+    var defs = `<defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${from}"/><stop offset="1" stop-color="${to}"/></linearGradient></defs>`;
+  }
+  const key = opt.key || '#39E0FF';
+  const w = opt.w || size, h = opt.h || size;
+  return `<svg width="${w}" height="${h}" viewBox="0 0 100 100" fill="none" preserveAspectRatio="${opt.preserve||'xMidYMid meet'}">
+    ${defs||''}
+    <path d="M50 6 L86 20 V48 C86 72 70 88 50 96 C30 88 14 72 14 48 V20 Z" fill="${fill}"/>
+    <circle cx="50" cy="43" r="10.5" fill="${key}"/>
+    <path d="M46 49 L54 49 L57 71 L43 71 Z" fill="${key}"/>
+  </svg>`;
+}
+
+// header + lockups
+set('hMark', shield(40));
+set('lkA',  shield(74));
+set('lkAd', shield(74, {from:'#39E0FF', to:'#1E6BFF', key:'#ffffff'}));
+set('stk',  shield(66));
+set('stkd', shield(66, {from:'#39E0FF', to:'#1E6BFF', key:'#ffffff'}));
+set('markBig', shield(120));
+
+// app icon (white shield, deep keyhole)
+set('appBig', shield(96, {solid:'#ffffff', key:'#0A2A6B'}));
+set('app64',  shield(46, {solid:'#ffffff', key:'#0A2A6B'}));
+set('app40',  shield(28, {solid:'#ffffff', key:'#0A2A6B'}));
+set('app24',  shield(17, {solid:'#ffffff', key:'#0A2A6B'}));
+
+// monochrome
+set('monoInk',    shield(96, {solid:'#0B0E14', key:'#E9EBF0'}));
+set('monoWhite',  shield(96, {solid:'#ffffff', key:'#1E6BFF'}));
+set('monoWhite2', shield(96, {solid:'#ffffff', key:'#0B0E14'}));
+
+// clear space
+set('csMark', shield(96));
+// pad overlays sized to half the shield height (~48px)
+const csBox = document.getElementById('csBox');
+if (csBox){
+  const pads = [
+    {top:0,left:0,right:0,height:'48px',width:'100%',label:'½x'},
+    {bottom:0,left:0,right:0,height:'48px',width:'100%',label:'½x'},
+    {top:'48px',bottom:'48px',left:0,width:'48px',label:'½x'},
+    {top:'48px',bottom:'48px',right:0,width:'48px',label:'½x'}
+  ];
+  pads.forEach(p=>{
+    const d=document.createElement('div'); d.className='cs-pad';
+    ['top','bottom','left','right','height','width'].forEach(k=>{ if(p[k]!=null) d.style[k]=typeof p[k]==='number'?p[k]+'px':p[k]; });
+    d.textContent=p.label; csBox.appendChild(d);
+  });
+}
+
+// min sizes
+set('min32', shield(48));
+set('min20', shield(30));
+set('minLk', '<div style="display:flex;align-items:center;gap:9px"><span>'+shield(30)+'</span><span style="font-family:Sora,sans-serif;font-weight:800;font-size:19px;letter-spacing:-0.03em">Trust<span style="color:#1E6BFF">DCX</span></span></div>');
+
+// don'ts
+set('dont1', shield(86, {from:'#E84B4B', to:'#7A1010', key:'#FFD23F'}));     // recolored
+set('dont2', shield(86, {w:118, h:70, preserve:'none'}));                    // stretched
+set('dont3', shield(86));                                                    // clashing bg (set on violet)
+set('dont4', '<div style="filter:drop-shadow(0 8px 6px rgba(0,0,0,0.5));border:3px solid #111;border-radius:50%;padding:6px">'+shield(74)+'</div>'); // shadow+outline
+</script>
+</body>
+</html>

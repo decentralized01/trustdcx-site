@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TrustDCX — Logo Exploration</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0E14;
+    --ink-2:#11151F;
+    --paper:#F4F5F7;
+    --paper-2:#E9EBF0;
+    --line:rgba(11,14,20,0.08);
+    --muted:#6B7280;
+
+    /* A — blue / cyan */
+    --a1:#1E6BFF; --a2:#39E0FF; --a-deep:#0A2A6B;
+    /* B — black / electric green */
+    --b1:#00E676; --b2:#9CFF57; --b-ink:#0A0F0C;
+    /* C — violet web3 */
+    --c1:#7C3AED; --c2:#C026D3; --c3:#22D3EE;
+    /* D — gold / dark */
+    --d1:#E8B84B; --d2:#F6D785; --d-ink:#14110A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    padding:56px 40px 110px;
+  }
+
+  /* ---------- header ---------- */
+  .header{
+    max-width:1240px;margin:0 auto 44px;
+    display:flex;align-items:flex-end;justify-content:space-between;
+    border-bottom:1px solid var(--line);padding-bottom:22px;gap:24px;flex-wrap:wrap;
+  }
+  .header h1{
+    font-family:'Sora',sans-serif;font-weight:800;font-size:34px;margin:0;letter-spacing:-0.03em;
+  }
+  .header h1 .x{color:var(--a1)}
+  .header .meta{text-align:right;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);line-height:1.7}
+  .header .meta b{display:block;color:var(--ink);font-size:13px;letter-spacing:0.16em}
+
+  .intro{
+    max-width:1240px;margin:0 auto 40px;
+    font-size:14px;line-height:1.7;color:#3a4150;max-width:760px;
+  }
+  .intro .tag{
+    display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:0.1em;color:var(--a1);background:rgba(30,107,255,0.08);
+    border:1px solid rgba(30,107,255,0.2);padding:5px 10px;border-radius:7px;margin-bottom:16px;
+  }
+
+  /* ---------- section ---------- */
+  .section{max-width:1240px;margin:0 auto 18px}
+  .sec-head{
+    display:flex;align-items:baseline;gap:14px;margin:54px auto 22px;
+  }
+  .sec-head .no{
+    font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#fff;
+    background:var(--ink);width:30px;height:30px;border-radius:8px;display:grid;place-items:center;letter-spacing:0;
+  }
+  .sec-head h2{font-family:'Sora',sans-serif;font-weight:700;font-size:21px;margin:0;letter-spacing:-0.02em}
+  .sec-head .desc{font-size:13px;color:var(--muted);margin-left:auto;text-align:right;max-width:360px;line-height:1.5}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .stage{flex:1;display:grid;place-items:center;padding:64px 40px;min-height:300px}
+  .stage.dark{background:var(--ink)}
+  .stage.tint-a{background:radial-gradient(circle at 30% 0%,rgba(30,107,255,0.10),transparent 55%),var(--paper-2)}
+  .stage.tint-b{background:radial-gradient(circle at 70% 10%,rgba(0,230,118,0.10),transparent 55%),var(--paper-2)}
+  .stage.tint-c{background:radial-gradient(circle at 30% 0%,rgba(124,58,237,0.12),transparent 55%),var(--paper-2)}
+  .stage.tint-d{background:radial-gradient(circle at 70% 0%,rgba(232,184,75,0.14),transparent 55%),var(--paper-2)}
+  .label{
+    border-top:1px solid var(--line);padding:13px 18px;display:flex;justify-content:space-between;
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);background:#fafbfc;
+  }
+  .label b{color:var(--ink);font-weight:700}
+  .stage.dark + .label{} 
+
+  /* ---------- generic wordmark ---------- */
+  .lockup{display:flex;align-items:center;gap:20px}
+  .lockup.vert{flex-direction:column;gap:18px;text-align:center}
+  .word{display:flex;flex-direction:column;line-height:0.96}
+  .word .name{font-family:'Sora',sans-serif;font-weight:800;font-size:46px;letter-spacing:-0.035em;color:var(--ink)}
+  .word .name .dcx{font-weight:700}
+  .word .sub{
+    margin-top:9px;font-family:'JetBrains Mono',monospace;font-weight:500;font-size:10.5px;letter-spacing:0.34em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .stage.dark .word .name{color:#fff}
+  .stage.dark .word .sub{color:#8B93A3}
+
+  /* concept-specific wordmark colors */
+  .w-a .dcx{color:var(--a1)}
+  .stage.dark .w-a .dcx{color:var(--a2)}
+  .w-b .dcx{color:#0FB85F}
+  .stage.dark .w-b .dcx{color:var(--b1)}
+  .w-c .dcx{color:var(--c1)}
+  .stage.dark .w-c .dcx{color:var(--c2)}
+  .w-d .dcx{color:#B4892A}
+  .stage.dark .w-d .dcx{color:var(--d1)}
+
+  /* ---------- icon sizes ---------- */
+  .mark{flex-shrink:0}
+  svg{display:block}
+
+  /* ---------- app icon row ---------- */
+  .app-row{display:flex;align-items:center;gap:32px;flex-wrap:wrap;justify-content:center}
+  .app-icon{
+    width:150px;height:150px;border-radius:34px;position:relative;overflow:hidden;
+    display:grid;place-items:center;
+    box-shadow:0 20px 40px -16px rgba(0,0,0,0.45),inset 0 -3px 0 rgba(0,0,0,0.12);
+  }
+  .app-icon .gloss{position:absolute;top:-30%;left:-15%;width:80%;height:70%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,0.32),transparent 60%);pointer-events:none}
+  .ai-a{background:linear-gradient(155deg,var(--a2)0%,var(--a1)48%,var(--a-deep)100%)}
+  .ai-b{background:linear-gradient(155deg,#16331F 0%,var(--b-ink)100%)}
+  .ai-c{background:linear-gradient(150deg,var(--c3)0%,var(--c1)45%,#3b0a86 100%)}
+  .ai-d{background:linear-gradient(150deg,#26200F 0%,var(--d-ink)100%)}
+
+  .sizes{display:flex;align-items:center;gap:14px}
+  .sizes .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase}
+  .mini{border-radius:9px;overflow:hidden;display:grid;place-items:center;box-shadow:0 4px 10px -4px rgba(0,0,0,0.3)}
+
+  .footer{max-width:1240px;margin:80px auto 0;border-top:1px solid var(--line);padding-top:24px;
+    font-size:12px;color:var(--muted);line-height:1.7}
+  .footer b{color:var(--ink)}
+  @media(max-width:920px){.grid,.grid-3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>Trust<span class="x">DCX</span></h1>
+  <div class="meta">
+    <b>Logo Exploration</b>
+    Decentralized Secured Wallet · v1
+  </div>
+</header>
+
+<p class="intro">
+  <span class="tag">// 4 directions · mark + wordmark + app icon</span><br>
+  Four distinct routes for <b>TrustDCX</b>, a decentralized secured crypto wallet. Each pairs a geometric
+  mark with the wordmark, shown in light + dark and as an app icon. The brief read as <b>trust, security and
+  self-custody</b> — so every mark hides a shield, a key, or a vault. Pick a full direction, or mix a mark from
+  one with the palette of another.
+</p>
+
+<!-- ============================================================= A -->
+<div class="section">
+  <div class="sec-head">
+    <span class="no">A</span>
+    <h2>Shield Key — Deep Blue / Cyan</h2>
+    <span class="desc">Classic crypto trust palette. A shield formed from a keyhole — protection + access to your keys.</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="stage tint-a">
+        <div class="lockup">
+          <div class="mark" id="markA"></div>
+          <div class="word w-a"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Secured · Self-Custody</span></div>
+        </div>
+      </div>
+      <div class="label"><b>A · Primary Lockup</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup">
+          <div class="mark" id="markAd"></div>
+          <div class="word w-a"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Secured · Self-Custody</span></div>
+        </div>
+      </div>
+      <div class="label"><b>A · Primary Lockup</b><span>Dark</span></div>
+    </div>
+    <div class="card" style="grid-column:span 2">
+      <div class="stage tint-a" style="padding:54px 40px">
+        <div class="app-row">
+          <div class="app-icon ai-a"><div class="gloss"></div><div id="appA"></div></div>
+          <div class="sizes">
+            <span class="mini ai-a" style="width:64px;height:64px;border-radius:15px" id="appA64"></span>
+            <span class="mini ai-a" style="width:40px;height:40px;border-radius:10px" id="appA40"></span>
+            <span class="mini ai-a" style="width:24px;height:24px;border-radius:6px" id="appA24"></span>
+            <span class="lab">App icon · Favicon scale</span>
+          </div>
+        </div>
+      </div>
+      <div class="label"><b>A · App Icon</b><span>iOS / Android · Multi-size</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= B -->
+<div class="section">
+  <div class="sec-head">
+    <span class="no">B</span>
+    <h2>DCX Monogram — Black / Electric Green</h2>
+    <span class="desc">Techy and secure. The D, C and X interlock into a single ledger glyph — terminal-green on near-black.</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="stage tint-b">
+        <div class="lockup">
+          <div class="mark" id="markB"></div>
+          <div class="word w-b"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">On-Chain · Encrypted</span></div>
+        </div>
+      </div>
+      <div class="label"><b>B · Primary Lockup</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup">
+          <div class="mark" id="markBd"></div>
+          <div class="word w-b"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">On-Chain · Encrypted</span></div>
+        </div>
+      </div>
+      <div class="label"><b>B · Primary Lockup</b><span>Dark</span></div>
+    </div>
+    <div class="card" style="grid-column:span 2">
+      <div class="stage tint-b" style="padding:54px 40px">
+        <div class="app-row">
+          <div class="app-icon ai-b"><div class="gloss"></div><div id="appB"></div></div>
+          <div class="sizes">
+            <span class="mini ai-b" style="width:64px;height:64px;border-radius:15px" id="appB64"></span>
+            <span class="mini ai-b" style="width:40px;height:40px;border-radius:10px" id="appB40"></span>
+            <span class="mini ai-b" style="width:24px;height:24px;border-radius:6px" id="appB24"></span>
+            <span class="lab">App icon · Favicon scale</span>
+          </div>
+        </div>
+      </div>
+      <div class="label"><b>B · App Icon</b><span>iOS / Android · Multi-size</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= C -->
+<div class="section">
+  <div class="sec-head">
+    <span class="no">C</span>
+    <h2>Hex Vault — Violet Web3</h2>
+    <span class="desc">Modern Web3 energy. A hexagonal token with a vault door + decentralized nodes at each vertex.</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="stage tint-c">
+        <div class="lockup">
+          <div class="mark" id="markC"></div>
+          <div class="word w-c"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Decentralized · Wallet</span></div>
+        </div>
+      </div>
+      <div class="label"><b>C · Primary Lockup</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup">
+          <div class="mark" id="markCd"></div>
+          <div class="word w-c"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Decentralized · Wallet</span></div>
+        </div>
+      </div>
+      <div class="label"><b>C · Primary Lockup</b><span>Dark</span></div>
+    </div>
+    <div class="card" style="grid-column:span 2">
+      <div class="stage tint-c" style="padding:54px 40px">
+        <div class="app-row">
+          <div class="app-icon ai-c"><div class="gloss"></div><div id="appC"></div></div>
+          <div class="sizes">
+            <span class="mini ai-c" style="width:64px;height:64px;border-radius:15px" id="appC64"></span>
+            <span class="mini ai-c" style="width:40px;height:40px;border-radius:10px" id="appC40"></span>
+            <span class="mini ai-c" style="width:24px;height:24px;border-radius:6px" id="appC24"></span>
+            <span class="lab">App icon · Favicon scale</span>
+          </div>
+        </div>
+      </div>
+      <div class="label"><b>C · App Icon</b><span>iOS / Android · Multi-size</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================= D -->
+<div class="section">
+  <div class="sec-head">
+    <span class="no">D</span>
+    <h2>Vault Cube — Gold / Dark</h2>
+    <span class="desc">Premium and valuable. An isometric vault cube with a keyhole face — stored value you control.</span>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="stage tint-d">
+        <div class="lockup">
+          <div class="mark" id="markD"></div>
+          <div class="word w-d"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Cold · Secured · Vault</span></div>
+        </div>
+      </div>
+      <div class="label"><b>D · Primary Lockup</b><span>Light</span></div>
+    </div>
+    <div class="card">
+      <div class="stage dark">
+        <div class="lockup">
+          <div class="mark" id="markDd"></div>
+          <div class="word w-d"><span class="name">Trust<span class="dcx">DCX</span></span><span class="sub">Cold · Secured · Vault</span></div>
+        </div>
+      </div>
+      <div class="label"><b>D · Primary Lockup</b><span>Dark</span></div>
+    </div>
+    <div class="card" style="grid-column:span 2">
+      <div class="stage tint-d" style="padding:54px 40px">
+        <div class="app-row">
+          <div class="app-icon ai-d"><div class="gloss"></div><div id="appD"></div></div>
+          <div class="sizes">
+            <span class="mini ai-d" style="width:64px;height:64px;border-radius:15px" id="appD64"></span>
+            <span class="mini ai-d" style="width:40px;height:40px;border-radius:10px" id="appD40"></span>
+            <span class="mini ai-d" style="width:24px;height:24px;border-radius:6px" id="appD24"></span>
+            <span class="lab">App icon · Favicon scale</span>
+          </div>
+        </div>
+      </div>
+      <div class="label"><b>D · App Icon</b><span>iOS / Android · Multi-size</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <b>Next steps</b> — Tell me which direction (or which mark + palette combo) to refine. I can then deliver
+  vector-clean SVG files, a one-color / monochrome version, social avatars, and a small brand sheet with
+  spacing &amp; clear-space rules. <b>Pick A, B, C or D</b> — or mix and match.
+</div>
+
+<script>
+/* ---------- mark builders (return SVG string) ---------- */
+let __gid = 0;
+const uid = () => 'g' + (__gid++);
+const set = (id, html) => { const e = document.getElementById(id); if (e) e.innerHTML = html; };
+
+// A — Shield with keyhole
+function shield(size, from, to, key){
+  const id = uid();
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${from}"/><stop offset="1" stop-color="${to}"/></linearGradient></defs>
+    <path d="M50 6 L86 20 V48 C86 72 70 88 50 96 C30 88 14 72 14 48 V20 Z" fill="url(#${id})"/>
+    <circle cx="50" cy="43" r="10.5" fill="${key}"/>
+    <path d="M46 49 L54 49 L57 71 L43 71 Z" fill="${key}"/>
+  </svg>`;
+}
+// B — DC interlock monogram glyph
+function monogram(size, c1, c2, bg){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
+    ${bg ? `<rect x="6" y="6" width="88" height="88" rx="22" fill="${bg}"/>` : ''}
+    <path d="M26 24 H50 A26 26 0 0 1 50 76 H26 V63 H49 A13 13 0 0 0 49 37 H26 Z" fill="${c1}"/>
+    <path d="M80 36 A24 24 0 1 0 80 64" stroke="${c2}" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </svg>`;
+}
+// C — Hexagon token with vault dial + decentralized nodes
+function hexvault(size, g1, g2, ring, dotc){
+  const id = uid();
+  const pts = [[50,8],[86,29],[86,71],[50,92],[14,71],[14,29]];
+  const nodes = pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${dotc}"/>`).join('');
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
+    <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${g1}"/><stop offset="1" stop-color="${g2}"/></linearGradient></defs>
+    <path d="M50 14 L80 31 V69 L50 86 L20 69 V31 Z" fill="url(#${id})"/>
+    <circle cx="50" cy="50" r="16" fill="none" stroke="${ring}" stroke-width="4"/>
+    <circle cx="50" cy="50" r="5" fill="${ring}"/>
+    <line x1="50" y1="50" x2="50" y2="34" stroke="${ring}" stroke-width="4" stroke-linecap="round"/>
+    ${nodes}
+  </svg>`;
+}
+// D — Isometric vault cube with keyhole
+function vaultcube(size, top, left, right, key){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" fill="none">
+    <path d="M50 10 L86 30 L50 50 L14 30 Z" fill="${top}"/>
+    <path d="M14 30 L50 50 L50 92 L14 72 Z" fill="${left}"/>
+    <path d="M86 30 L50 50 L50 92 L86 72 Z" fill="${right}"/>
+    <circle cx="32" cy="55" r="6.5" fill="${key}"/>
+    <path d="M29 59 L35 59 L37 70 L27 70 Z" fill="${key}"/>
+  </svg>`;
+}
+
+/* A — Shield Key */
+set('markA',  shield(70,'#1E6BFF','#0A2A6B','#39E0FF'));
+set('markAd', shield(70,'#39E0FF','#1E6BFF','#ffffff'));
+set('appA',   shield(96,'#ffffff','#D8E8FF','#0A2A6B'));
+[['appA64',44],['appA40',28],['appA24',17]].forEach(([id,sz]) => set(id, shield(sz,'#ffffff','#D8E8FF','#0A2A6B')));
+
+/* B — DC Monogram */
+set('markB',  monogram(70,'#0FB85F','#0A9F4F'));
+set('markBd', monogram(70,'#00E676','#9CFF57'));
+set('appB',   monogram(96,'#00E676','#9CFF57'));
+[['appB64',46],['appB40',30],['appB24',19]].forEach(([id,sz]) => set(id, monogram(sz,'#00E676','#9CFF57')));
+
+/* C — Hex Vault */
+set('markC',  hexvault(70,'#7C3AED','#C026D3','#ffffff','#22D3EE'));
+set('markCd', hexvault(70,'#8B45F0','#C026D3','#ffffff','#22D3EE'));
+set('appC',   hexvault(94,'rgba(255,255,255,0.22)','rgba(255,255,255,0.08)','#ffffff','#22D3EE'));
+[['appC64',46],['appC40',30],['appC24',19]].forEach(([id,sz]) => set(id, hexvault(sz,'rgba(255,255,255,0.22)','rgba(255,255,255,0.08)','#ffffff','#22D3EE')));
+
+/* D — Vault Cube */
+set('markD',  vaultcube(70,'#F6D785','#B4892A','#E8B84B','#14110A'));
+set('markDd', vaultcube(70,'#F6D785','#9C7322','#E8B84B','#14110A'));
+set('appD',   vaultcube(94,'#F6D785','#B4892A','#E8B84B','#14110A'));
+[['appD64',46],['appD40',30],['appD24',19]].forEach(([id,sz]) => set(id, vaultcube(sz,'#F6D785','#B4892A','#E8B84B','#14110A')));
+</script>
+
+</body>
+</html>
