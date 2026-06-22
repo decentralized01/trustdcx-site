@@ -522,6 +522,14 @@
       transition: color 0.2s;
     }
     .apk-link:hover { color: var(--cyan); }
+    .store-btn.store-apk { background: linear-gradient(130deg, #1E6BFF, #39E0FF); border-color: transparent; }
+    .store-btn.store-apk .sup, .store-btn.store-apk .smain { color: #fff; }
+    .store-btn.store-apk:hover { filter: brightness(1.08); border-color: transparent; }
+    .dl-soon { margin-top: 18px; }
+    .store-soon { opacity: 0.45; cursor: default; }
+    .store-soon:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.14); transform: none; }
+    .store-soon .smain::after { content: ' · soon'; color: var(--cyan); font-size: 11px; }
+    .apk-note { margin-top: 20px; font-size: 12px; color: var(--muted); font-family: 'JetBrains Mono',monospace; letter-spacing: 0.04em; line-height: 1.6; }
 
     /* ══════════════════════════ FAQ ══════════════════════════ */
     #faq { background: var(--ink); }
@@ -1145,23 +1153,33 @@
       <p class="dl-p">Free to download. No accounts. No KYC. Your crypto — secured the way it was meant to be.</p>
 
       <div class="dl-btns">
-        <a href="#" class="store-btn" aria-label="Get TrustDCX on Google Play">
-          <span class="sico" aria-hidden="true">🤖</span>
+        <a href="downloads/TrustDCX-latest.apk" class="store-btn store-apk" aria-label="Download the TrustDCX Android APK" download>
+          <span class="sico" aria-hidden="true">⬇</span>
           <div class="stxt">
-            <div class="sup">Get it on</div>
-            <div class="smain">Google Play</div>
-          </div>
-        </a>
-        <a href="#" class="store-btn" aria-label="Download TrustDCX on App Store">
-          <span class="sico" aria-hidden="true">🍎</span>
-          <div class="stxt">
-            <div class="sup">Download on the</div>
-            <div class="smain">App Store</div>
+            <div class="sup">Direct download</div>
+            <div class="smain">Download APK</div>
           </div>
         </a>
       </div>
 
-      <a href="#" class="apk-link">↓ Download APK directly (Android sideload)</a>
+      <div class="dl-btns dl-soon">
+        <div class="store-btn store-soon" role="img" aria-label="Coming soon on Google Play">
+          <span class="sico" aria-hidden="true">🤖</span>
+          <div class="stxt">
+            <div class="sup">Coming soon on</div>
+            <div class="smain">Google Play</div>
+          </div>
+        </div>
+        <div class="store-btn store-soon" role="img" aria-label="Coming soon on the App Store">
+          <span class="sico" aria-hidden="true">🍎</span>
+          <div class="stxt">
+            <div class="sup">Coming soon on</div>
+            <div class="smain">App Store</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="apk-note">Android 8.0+ · ~29 MB · latest release · enable "install from unknown sources" to sideload.</p>
     </div>
   </div>
 </section>
